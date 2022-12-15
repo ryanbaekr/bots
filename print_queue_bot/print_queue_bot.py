@@ -11,8 +11,8 @@ async def on_message(message):
     
     for attachment in message.attachments:
         if attachment.filename.endswith('.pdf'):
-            await attachment.save('temp.pdf')
+            await attachment.save(os.path.join(os.path.dirname(__file__), 'temp.pdf'))
             
-            os.system('lp "' + 'temp.pdf' + '"')
+            os.system('lp "' + os.path.join(os.path.dirname(__file__), 'temp.pdf') + '"')
 
 bot.run('YOUR_BOT_TOKEN')
