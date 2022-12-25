@@ -10,7 +10,7 @@ async def on_message(message):
         return
     
     for attachment in message.attachments:
-        if attachment.filename.endswith('.pdf'):
+        if attachment.filename.endswith('.pdf') or attachment.filename.endswith('.PDF'):
             await attachment.save(os.path.join(os.path.dirname(__file__), 'temp.pdf'))
             
             os.system('lp "' + os.path.join(os.path.dirname(__file__), 'temp.pdf') + '"')
