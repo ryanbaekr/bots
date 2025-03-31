@@ -1,8 +1,9 @@
 import discord
 from discord.ext import commands, tasks
+import os
 import datetime
 
-with open("messages.txt", "r") as f:
+with open(os.path.join(os.path.dirname(__file__), "messages.txt"), "r") as f:
     messages = f.readlines()
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
